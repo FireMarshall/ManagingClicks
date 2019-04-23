@@ -1,0 +1,19 @@
+{
+  "name": "managingclicks",
+  "version": "1.0.0",
+  "description": "\"Managing user clicks on a web page.\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mocha": "^6.1.2",
+    "mongoose": "^5.5.0",
+    "nodemon": "^1.18.11"
+  }
+}

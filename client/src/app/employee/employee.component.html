@@ -1,0 +1,123 @@
+<html>
+  <head>
+      <title>Transaction Log</title>
+    
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+    </head>
+  <body>
+   
+    <section class="statistics">
+      <div class="container-fluid">
+        <div class="row">
+    <div class="col-md-4">
+      <div class="box">
+        <i class="fa fa-envelope fa-fw bg-primary"></i>
+        <div class="info">
+          <h3>1,245</h3> <span>Emails</span>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </section>
+            
+            <br>
+            <br>
+            <br>
+       
+            <label for="selectfilter">Filter By :  </label>
+            <select (change)="selectChangeHandler($event)">
+                <option value="1">All</option>
+                <option value="2">Daily</option>
+                <option value="3">Weekly</option>
+                <option value="4">Monthly</option>
+            </select>
+
+            
+            <form #glForm="ngForm" (ngSubmit)="submit(glForm)">
+                <label for="selectfilter">Amount :  </label>   
+                <div class="input-group">
+                    <select class="form-control" style="width:40%"  [(ngModel)]="selectedOperator" name="selectO"  #ln="ngModel" required>
+                        <option value="1">&gt;</option>
+                        <option value="2">&lt;</option>
+                        <option value="3"> = </option>
+                    </select>
+                    <input class="form-control" style="width:50%" type="number" name="name" #fn="ngModel" [(ngModel)]="selectedAmount" placeholder="Enter amount" required>
+                </div>
+            <button class="btn btn-info" type="submit" [disabled]="!glForm.valid||glForm.pristine">Submit</button>
+              </form>
+
+            <!-- <form #glForm="ngForm" (ngSubmit)="submit(glForm)">
+                <div class="form-group">
+            <label for="selectfilter">Value :  </label>
+            <select class="form-control" [(ngModel)]="selectedOperator" name="selectO"  #ln="ngModel" required>
+                <option value="1">&gt;</option>
+                <option value="2">&lt;</option>
+                <option value="3"> = </option>
+            </select>
+
+            <input class="form-control" style="width:20%" type="number" name="name" #fn="ngModel" [(ngModel)]="selectedAmount" placeholder="Enter amount" required>
+            </div>
+            <button class="btn btn-custom right" type="submit" [disabled]="!glForm.valid||glForm.pristine">Submit</button>
+            </form> -->
+
+<!--             
+             <form #f="ngForm" (ngSubmit)="submit(f)">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+            <input type="number" name="name" #fn="ngModel" [(ngModel)]="selectedAmount" placeholder="Enter amount" required>
+            <select [(ngModel)]="selectedOperator" name="selectO"  #ln="ngModel" required>
+                <option value="1">&gt;</option>
+                <option value="2">&lt;</option>
+                <option value="3"> = </option>
+            </select> -->
+                  <!-- <input type="text" required minlength="3" maxlength="10" name="firstName" [(ngModel)]="firstName" class="form-control" -->
+                    <!-- #fn="ngModel"> -->
+                <!-- </div>
+                <input type="submit" value="get" ng-disabled="f.$pristine || f.$invalid" />
+                 -->
+                <!-- <button class="btn btn-custom right" type="submit" [disabled]="!f.valid">Submit</button> -->
+                <!-- </form>
+
+             -->
+            <!-- <form #glForm="ngForm" (ngSubmit)="onSubmit(glForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="selected_">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Enter full name" required>
+                    <label>Name :
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+              </form> -->
+
+
+
+            <table class="table table-hover" style=" margin: auto;width: 75%">
+                <thead>
+                  <tr>
+                    <th scope="col">Transaction id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Payment Method</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let emp of employeeService.employees">
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.position}}</td>
+                        <td>{{emp.office}}</td>
+                    </tr>
+                </tbody>
+              </table>
+              
+  </body>
+</html>

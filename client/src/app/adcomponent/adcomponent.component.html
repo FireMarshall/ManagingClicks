@@ -1,0 +1,11 @@
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+  <h3 class="w3-center">MY WORK</h3>
+  <p class="w3-center"><em>Here goes some of the items is about to release.Select for pre-registration.<br> Click on the
+      images to make them bigger</em></p><br>
+  <tr *ngFor="let advertisement of this.advertismentService.advertisement">
+    <a href="{{advertisement.product_href}}">
+      <img src="{{advertisement.product_img}}" alt="{{advertisement.campaign}}{{advertisement.product_name}}"
+        (click)="registerClick(advertisement.company, advertisement.product_name, advertisement.product_category)">
+    </a>
+  </tr>
+</div>
